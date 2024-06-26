@@ -1,0 +1,16 @@
+<div class="dashboard-container">
+    <app-header (toggleSideBar)="handleToggleSidenav()"></app-header>
+    <div class="dashboard-content">
+      <app-side-bar
+        (groupSelected)="onGroupSelected($event)"
+        [isOpen]="sidebarOpen"
+      ></app-side-bar>
+      <div class="content-area" *ngIf="selectedGroup">
+        <app-group-detail
+          [groupDetails]="selectedGroup"
+          [groupId]="selectedGroupId"
+        ></app-group-detail>
+      </div>
+    </div>
+  </div>
+  

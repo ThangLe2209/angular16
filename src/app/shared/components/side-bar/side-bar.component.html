@@ -1,0 +1,57 @@
+<mat-sidenav-container class="sidenav-wrapper">
+    <mat-sidenav [opened]="isOpen">
+      <mat-nav-list>
+        <mat-list-item
+          *ngFor="let group of groups"
+          (click)="selectGroup(group.group_ID)"
+        >
+          {{ group.group_title }}
+          <button
+            mat-icon-button
+            color="warn"
+            (click)="removeGroup(group.group_ID)"
+          >
+            <mat-icon style="height: 20px; width: 20px">delete</mat-icon>
+          </button>
+          <button mat-icon-button color="accent">
+            <mat-icon style="height: 20px; width: 20px">edit</mat-icon>
+          </button>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+      <!-- <div class="btn-add-group" (click)="showAddForm()">
+        <button mat-button>{{ addGroupFormVisible ? "Close" : "Add" }}</button>
+      </div>
+  
+      <div *ngIf="addGroupFormVisible" class="add-group-form">
+        <form [formGroup]="newGroupForm" (ngSubmit)="onSubmit()">
+          <input formControlName="group_ID" placeholder="Group's ID" />
+          <input formControlName="group_title" placeholder="Group's name" />
+          <button mat-button type="submit">Confirm</button>
+        </form>
+      </div> -->
+  
+      <mat-nav-list>
+        <mat-list-item
+          *ngFor="let group of groups"
+          (click)="selectGroup(group.group_ID)"
+        >
+          {{ group.group_title }}
+  
+          <button
+            mat-icon-button
+            color="warn"
+            (click)="removeGroup(group.group_ID)"
+          >
+            <mat-icon style="height: 20px; width: 20px">delete</mat-icon>
+          </button>
+          <button mat-icon-button color="accent">
+            <mat-icon style="height: 20px; width: 20px">edit</mat-icon>
+          </button>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
